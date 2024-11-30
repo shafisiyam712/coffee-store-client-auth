@@ -58,25 +58,24 @@ const Users = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
-                        {
-                            users.map(user => <tr key={user._id}>
-                                <th>1</th>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>{user.createdAt}</td>
-                                <td>{user.lastSignInTime}</td>
-                                <td>
-                                    <button className='btn'>E</button>
-                                    <button
-                                        onClick={() => handleUserDelete(user._id)}
-                                        className='btn'>X</button>
-                                </td>
-                            </tr>)
-                        }
-
-
-                    </tbody>
+  {
+    users.map((user, index) => (
+      <tr key={user._id}>
+        <th>{index + 1}</th> {/* Dynamically sets the row number */}
+        <td>{user.name}</td>
+        <td>{user.email}</td>
+        <td>{user.createdAt}</td>
+        <td>{user.lastSignInTime}</td>
+        <td>
+          <button className='btn'>E</button>
+          <button
+            onClick={() => handleUserDelete(user._id)}
+            className='btn'>X</button>
+        </td>
+      </tr>
+    ))
+  }
+</tbody>
                 </table>
             </div>
         </div>
